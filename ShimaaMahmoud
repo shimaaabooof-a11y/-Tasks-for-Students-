@@ -1,0 +1,25 @@
+// نظام إدارة وتحليل درجات الطلاب - تاسك الجافاسكريبت //
+class Student {
+    constructor(studentId, fullName, studentGrades, attendanceRate) {
+        this.studentId = studentId;
+        this.fullName = fullName;
+        this.studentGrades = studentGrades;
+        this.attendanceRate = attendanceRate;
+    }
+
+    // دالة حساب المتوسط للدرجات //
+    calculateAverage() {
+        const totalGradesSum = this.studentGrades.reduce((acc, grade) => acc + grade, 0);
+        return totalGradesSum / this.studentGrades.length;
+    }
+
+    // دالة تحديد التقدير الحرفي بناء على المعدل //
+    calculateGradeLetter() {
+        const avg = this.calculateAverage();
+        if (avg >= 85) return 'A';
+        if (avg >= 75) return 'B';
+        if (avg >= 65) return 'C';
+        if (avg >= 50) return 'D';
+        return 'F';
+    }
+}
